@@ -1,6 +1,6 @@
 // user model decleration
 'use strict';
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
 
 // declare user model format
 module.exports = function(sequelize, DataTypes) {
@@ -38,26 +38,26 @@ module.exports = function(sequelize, DataTypes) {
             beforeCreate: function(createdUser, options) {
                 if (createdUser && createdUser.password) {
                     let hash = bcrypt.hashSync(createdUser.password, 12);
-                    createdUser.password = hash;
+                    createdUser.password = hash
                 }
             }
         }
-    });
+    })
     user.associate = function(models) {
         // TODO: any user associations you want
     }
 
     // validPassword definition to validate password at user login
     user.prototype.validPassword = function(passwordTyped) {
-        return bcrypt.compareSync(passwordTyped, this.password);
+        return bcrypt.compareSync(passwordTyped, this.password)
     }
     
     // remove password before any serialization of User object
     user.prototype.toJSON = function() {
-        let userData = this.get();
-        delete userData.password;
-        return userData;
+        let userData = this.get()
+        delete userData.password
+        return userData
     }
     
-    return user;
+    return user
 };
