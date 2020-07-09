@@ -6,6 +6,11 @@
     <li>Conditions: <%= trail.conditionDetails %></li>
     <li>Conditions date: <%= trail.conditionDate %></li>
 </ul>
-<form method="POST" action="/profile">
+<form method="POST" action="/profile/<%= trail.id %>">
+    <input type="hidden" name="name" value="<%= trail.name %>">
+    <input type="hidden" name="length" value="<%= trail.length %>">
+    <input type="hidden" name="location" value="<%= trail.location %>">
+    <input type="hidden" name="conditions" value="<%= trail.conditionDetails %>">
+    <input type="hidden" name="conditionsDate" value="<%= trail.conditionDate %>">
     <input type="submit" value="Add to profile">
 </form>

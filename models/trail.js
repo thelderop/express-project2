@@ -16,8 +16,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         conditionsDate: {
             type: DataTypes.STRING
+        },
+        trailCode: {
+            type: DataTypes.STRING
         }
-    })
+    },{})
     trail.associate = function (models) {
         models.trail.belongsToMany(models.user, { through: 'trailsUsers' })
     }

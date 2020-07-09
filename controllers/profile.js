@@ -10,15 +10,34 @@ router.get('/', isLoggedIn, function(req, res) {
 })
 
 // add a trail to user's saved list
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
     db.trail.findOrCreate({
         where: {
-            id: req.params.id
+            trailCode: req.params.id
+        }, defaults: {
+            name: req.body.name,
+            location: req.body.location,
+            length: req.body.length,
+            conditions: req.body.conditions,
+            conditionsDate: req.body.conditionsDate
         }
-    }).catch((err) => {
+    }).then(trail => {
+        db.trailsUsers.findOrCreate({
+            where: {
+                trailId: trail[0].dataValues.id,
+                userId: req.user.id
+            }, defaults: {
+                rank: null
+            }
+        }).then(trailsUsers => {
+            res.redirect('/profile')
+        }).catch(err => {
+            console.log(err)
+        })
+    })
+    .catch((err) => {
         console.log(err)
     })
-    res.redirect('/profile')
 })
 
 // update user's rank of trail (1-5)

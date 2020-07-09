@@ -16,6 +16,7 @@ module.exports = function(sequelize, DataTypes) {
                 max: 5
             }
         }
+
     })
     
     return trailsUsers
