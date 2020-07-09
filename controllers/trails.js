@@ -8,21 +8,26 @@ router.get('/search', (req, res) => {
     res.render('search')
 })
 
-router.get('/search-results', (req,res) => {
-    let lat = req.query.latitude
-    let long = req.query.longitude
+router.post('/search-results', (req,res) => {
+    let lat = req.body.latitude
+    let long = req.body.longitude
     let hikeSearch = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=${key}`
     axios.get(hikeSearch)
-        .then((data) => {
-            // res.send(data.data.trails)
-            res.render('search', {trails: data.data.trails})
+        .then((trails) => {
+            console.log(trails)
+            res.render('search-results', {trails: trails.data.trails})
         }).catch((err) => {
             console.log(err)
         })
 })
 
-router.get('/:idx', (req, res) => {
-    res.render('show')
+router.get('/:id', (req, res) => {
+    let id = req.params.id
+    let hikeSearchById = `https://www.hikingproject.com/data/get-trails-by-id?ids=${id}&key=${key}`
+    axios.get(hikeSearchById)
+    .then((trails) => {
+        res.render('show', {trail: trails.data.trails})
+    })
 })
 
 module.exports = router
