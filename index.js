@@ -53,9 +53,8 @@ app.get('/', function(req, res) {
     res.render('index')
 })
 
-app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile')
-})
+// include profile controller
+app.use('/profile', require('./controllers/profile'))
 
 // include auth controller
 app.use('/auth', require('./controllers/auth'))

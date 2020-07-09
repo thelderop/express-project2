@@ -1,2 +1,9 @@
 <h2>Hi <%= currentUser.name %>. Welcome to the app!</h2>
 <h3>Your saved trails:</h3>
+<form method="POST" action="/profile">
+    <input type="submit" value="Remove from list">
+</form>
+<form method="POST" action="/profile">
+    <input type="number" name="rank" min="1" max="5" step="1" placeholder="1-5">
+    <input type="submit" value="Update">
+</form>

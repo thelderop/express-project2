@@ -45,6 +45,7 @@ module.exports = function(sequelize, DataTypes) {
     })
     user.associate = function(models) {
         // TODO: any user associations you want
+        models.user.belongsToMany(models.trail, {through: 'trailsUsers'})
     }
 
     // validPassword definition to validate password at user login

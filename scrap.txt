@@ -1,1 +1,16 @@
-            <a href="/trails/show/<%= id %>">Show details</a>
+Trail
+----
+id: integer,
+name: string,
+length: float,
+location: string,
+conditions: string,
+conditionsDate: string
+
+sequelize model:create --name Trail --attributes id:integer,name:string,length:float,location:string,conditions:string,conditionsDate:string
+
+TrailUser join
+----
+trailId: integer,
+userId: integer, // my user model from auth boilerplate doesn't have this. how do i change that model? - automatically created
+rank: integer // user's experience on hike, limit 1-5

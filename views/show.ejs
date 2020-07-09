@@ -1,7 +1,11 @@
 <h2>Trail details</h2>
 <ul>
-    <li><% trail.name %></li>
-    <li><% trail.length %></li>
-    <li><% trail.conditionDetails %></li>
-    <li><% trail.conditionDate %></li>
+    <li>Name: <%= trail.name %></li>
+    <li>Length: <%= trail.length %> miles</li>
+    <li>Location: <%= trail.location %></li>
+    <li>Conditions: <%= trail.conditionDetails %></li>
+    <li>Conditions date: <%= trail.conditionDate %></li>
 </ul>
+<form method="POST" action="/profile">
+    <input type="submit" value="Add to profile">
+</form>
