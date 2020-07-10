@@ -6,8 +6,21 @@ const key = process.env.apiKey
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, function(req, res) {
-    res.render('profile')
-})
+    db.user.findOne({
+        include: [
+            db.trail
+        ],
+        where: {
+            id: req.user.id
+        }
+    })
+        .then(user => {
+            res.render('profile', {user})
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        })
 
 // add a trail to user's saved list
 router.post('/:id', (req, res) => {
@@ -31,11 +44,11 @@ router.post('/:id', (req, res) => {
             }
         }).then(trailsUsers => {
             res.redirect('/profile')
+            res.send() // how do i get the results to populate on the page?
         }).catch(err => {
             console.log(err)
         })
-    })
-    .catch((err) => {
+    }).catch(err => {
         console.log(err)
     })
 })
@@ -49,20 +62,22 @@ router.put('/', (req, res) => {
             where: {
                 id: req.params.id // req.body.id?
             }
-}).catch((err) => {
-    console.log(err)
-})
+    }).catch(err => {
+        console.log(err)
+    })
 })
 
 // destroy saved trail using unique id
-router.delete('/', (req, res) => {
-    db.trail.destroy({
+router.delete('/:id', (req, res) => {
+    db.trailsUsers.destroy({
         where: {
-            id: req.params.id
+            trailId: req.params.id,
+            userId: req.user.id
         }
     }).then(deleted => {
         console.log(deleted)
-    }).catch((err) => {
+        res.redirect('/profile')
+    }).catch(err => {
         console.log(err)
     })
 })
