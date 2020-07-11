@@ -2,11 +2,12 @@
 <h3>Your saved trails:</h3>
 <% if (user.trails) { %>
     <% user.trails.forEach((trail) => { %>
-        <%= trail.name %>
+        <%= trail.name %> <%= trail.trailsUsers.rank %>
         <form method="POST" action="/profile/<%= trail.id %>/?_method=DELETE">
             <input type="submit" value="Remove">
         </form>
-        <form method="POST" action="/profile">
+        <form method="POST" action="/profile/<%= trail.id %>/?_method=PUT">
+            <input type="hidden" name="trailId" value="<%= trail.id %>">
             <input type="number" name="rank" min="1" max="5" step="1" placeholder="1-5">
             <input type="submit" value="Update">
         </form>

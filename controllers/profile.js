@@ -6,15 +6,17 @@ const key = process.env.apiKey
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, function(req, res) {
+    console.log('sefjighselrghj')
     db.user.findOne({
         include: [
-            db.trail
+            db.trail,
         ],
         where: {
             id: req.user.id
         }
     })
         .then(user => {
+            console.log(user)
             res.render('profile', {user})
             })
             .catch(err => {
@@ -22,7 +24,6 @@ router.get('/', isLoggedIn, function(req, res) {
             })
         })
 
-// add a trail to user's saved list
 router.post('/:id', (req, res) => {
     db.trail.findOrCreate({
         where: {
@@ -44,7 +45,7 @@ router.post('/:id', (req, res) => {
             }
         }).then(trailsUsers => {
             res.redirect('/profile')
-            res.send() // how do i get the results to populate on the page?
+            res.send()
         }).catch(err => {
             console.log(err)
         })
@@ -54,14 +55,19 @@ router.post('/:id', (req, res) => {
 })
 
 // update user's rank of trail (1-5)
-router.put('/', (req, res) => {
-    db.trail.update({
+router.put('/:id', (req, res) => {
+    console.log("RED", req.params.id)
+    db.trailsUsers.update({
         rank: req.body.rank
     },
         {
             where: {
-                id: req.params.id // req.body.id?
+                trailId: req.body.trailId,
+                userId: req.user.id
             }
+    }).then(trail => {
+        console.log(trail, 'BALLOON')
+        res.redirect('/profile')
     }).catch(err => {
         console.log(err)
     })
