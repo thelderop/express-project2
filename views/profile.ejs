@@ -1,14 +1,17 @@
-<h2>Hi <%= currentUser.name %>. Welcome to the app!</h2>
-<h3>Your saved trails:</h3>
+<div id="profile">
+    <h2>Hi <%= currentUser.name %>. Welcome to Hike Finder!</h2>
+</div>
 <% if (user.trails) { %>
     <% user.trails.forEach((trail) => { %>
-        <%= trail.name %> <%= trail.trailsUsers.rank %>
-        <form method="POST" action="/profile/<%= trail.id %>/?_method=DELETE">
-            <input type="submit" value="Remove">
-        </form>
-        <form method="POST" action="/profile/<%= trail.id %>/?_method=PUT">
-            <input type="hidden" name="trailId" value="<%= trail.id %>">
-            <input type="number" name="rank" min="1" max="5" step="1" placeholder="1-5">
-            <input type="submit" value="Update">
-        </form>
-    <% })} %>
+        <div id="saved-list">
+            <%= trail.name %> <%= trail.trailsUsers.rank %>
+            <form method="POST" action="/profile/<%= trail.id %>/?_method=DELETE">
+                <input class="btn" type="submit" value="Remove">
+            </form>
+            <form method="POST" action="/profile/<%= trail.id %>/?_method=PUT">
+                <input type="hidden" name="trailId" value="<%= trail.id %>">
+                <input class="text-field" type="number" name="rank" min="1" max="5" step="1" placeholder="1-5">
+                <input class="btn" type="submit" value="Update">
+            </form>
+        </div>
+<% })} %>

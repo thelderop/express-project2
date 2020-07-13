@@ -68,3 +68,13 @@ app.use('/trails', require('./controllers/trails'))
 app.listen(process.env.PORT || 3000, function() {
     console.log(`${process.env.PORT} connected.`);
 });
+
+// randomBackground => {
+//     let imageCount = 22
+//     let num = Math.ceil(Math.random() * imageCount)
+
+//     document.body.background = '/public/'+ num + '.jpg'
+//     document.body.style.backgroundRepeat = 'repeat'
+// }
+
+// randomBackground()

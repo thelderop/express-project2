@@ -1,0 +1,101 @@
+body {
+    background: rgb(192, 192, 192, 0.3);
+    font-family: 'Copse', serif;
+    margin: 0 auto;
+    padding: 0 auto;
+    background-image: url("/6.jpg");
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    background-color: rgb(0, 0, 0, 0.5);
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.nav-bar {
+    text-align: right;
+}
+
+#search {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+}
+
+#search h2 {
+    text-align: center;
+}
+
+.btn {
+    font-family: 'Copse', serif;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.text-field {
+    border-radius: 10px;
+    opacity: 0.5;
+    text-align: center;
+}
+
+#saved-list {
+    display: flex;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+}
+
+#profile {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+}
+
+#search-results {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 35%;
+    margin-left: 5%;
+}
+
+#show-page {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+}
+
+#home {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#login {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+}
+
+#register {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 5%;
+}

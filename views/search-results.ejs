@@ -1,8 +1,11 @@
-<ul>
-    <% if (trails) { %> 
-        <% trails.forEach((trail) => { %>
-        <li><%= trail.name %> - <%= trail.length %> miles
-            <a href="/trails/<%= trail.id %>">Show details</a><!-- inside of the squids, I need to put in some kind of index referencing each element of the array-->
-        </li>
-    <% })} %>
-</ul>
+<div id="search-results">
+    <ul>
+        <br>
+        <% if (trails) { %> 
+            <% trails.forEach((trail) => { %>
+            <li><%= trail.name %> - <%= trail.length %> miles
+                <a id="show-link" href="/trails/<%= trail.id %>">Show details</a><br><br>
+            </li>
+        <% })} %>
+    </ul>
+</div>

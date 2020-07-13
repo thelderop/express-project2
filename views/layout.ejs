@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Copse&display=swap" rel="stylesheet">
         <title>Hike Finder</title>
+        <link href="/style.css" rel="stylesheet"  type="text/css">
     </head>
     <body>
         <header>
-            <nav>
-                <% if (currentUser) { %>
-                    <a href="/auth/logout">Logout</a>
-                    <a href="/profile">Profile</a>
-                    <a href="/trails/search">Search</a>
-                <% } else { %>
-                    <a href="/auth/register">Register</a>
-                    <a href="/auth/login">Login</a>
-                <% } %>
-            </nav>
+            <div class="nav-bar">
+                <nav>
+                    <% if (currentUser) { %>
+                        <a href="/auth/logout">Logout</a>
+                        <a href="/profile">Profile</a>
+                        <a href="/trails/search">Search</a>
+                    <% } else { %>
+                        <a href="/auth/register">Register</a>
+                        <a href="/auth/login">Login</a>
+                    <% } %>
+                </nav>
+            </div>
         </header>
         <div class="container">
-            <h1>Find and Save Trails</h1>
             <%- include('./partials/alerts') %>
             <%- body %>
         </div>
