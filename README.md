@@ -20,7 +20,16 @@ Major bugs;
 
 BetterDoctor API is down, and I spent some time trying to query it before realizing. Pivoted last-minute to the Hiking Project API.
 
-Wireframes (out of date- they are for BetterDoctor, not Hiking Project):
+Wireframes and ERD (out of date- they are for BetterDoctor, not Hiking Project):
+
+![wireframe_one](./ERD.png)
+![wireframe_one](./Home.png)
+![wireframe_one](./Login.png)
+![wireframe_one](./Profile.png)
+![wireframe_one](./Register.png)
+![wireframe_one](./Search.png)
+![wireframe_one](./Show-Doctor.png)
+![wireframe_one](./Show-Practice.png)
 
 Routes:
 
