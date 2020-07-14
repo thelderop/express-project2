@@ -22,4 +22,14 @@ BetterDoctor API is down, and I spent some time trying to query it before realiz
 
 Wireframes (out of date- they are for BetterDoctor, not Hiking Project):
 
+Routes:
 
+ Method | Path | Purpose |
+| ------ | -------------- | -------------------------------- |
+| GET | `/profile` | profile page for specific user and associated trails |
+| POST | `/profile/:id` | Add a trail to a user's profile |
+| PUT | `/profile/:id` | Update a user's trail rank |
+| DELETE | `/profile/:id` | Removes a trail from a user's profile |
+| POST | `/trails/search-results` | Queries API and returns index of results |
+| GET | `/trails/:id` | Opens a show page containing details about specific results |
+| GET | `/trails` | Renders the search page for users to find results |
