@@ -5,13 +5,13 @@
     <% user.trails.forEach((trail) => { %>
         <div id="saved-list">
             <%= trail.name %> <%= trail.trailsUsers.rank %>
-            <form method="POST" action="/profile/<%= trail.id %>/?_method=DELETE">
-                <input class="btn" type="submit" value="Remove">
-            </form>
-            <form method="POST" action="/profile/<%= trail.id %>/?_method=PUT">
-                <input type="hidden" name="trailId" value="<%= trail.id %>">
-                <input class="text-field" type="number" name="rank" min="1" max="5" step="1" placeholder="1-5">
-                <input class="btn" type="submit" value="Update">
-            </form>
+                <form method="POST" action="/profile/<%= trail.id %>/?_method=DELETE">
+                    <input class="btn" type="submit" value="Remove">
+                </form>
+                <form method="POST" action="/profile/<%= trail.id %>/?_method=PUT">
+                    <input type="hidden" name="trailId" value="<%= trail.id %>">
+                    <input class="text-field" type="number" name="rank" min="1" max="5" step="1" placeholder="1-5">
+                    <input class="btn" type="submit" value="Update">
+                </form>
         </div>
 <% })} %>
